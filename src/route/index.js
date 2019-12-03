@@ -1,11 +1,17 @@
+const route = {
+  '/home': {
+    render: async () => import('../../src/page/home/'),
+    exact: true,
+    key: 1
+  },
+  '/detail/:id': {
+    render: async () => import('../../src/page/detail/'),
+    key: 2
+  },
+  '/list': {
+    render: async () => import('../../src/page/list/'),
+    key: 3
+  },
+};
 
-let routesDefault = []
-const files = require.context('../page', true, /index.js$/);
-files.keys().forEach(key => {
-  let path = key.split(".")[1];
-  let routePath = `/${path.split("/")[1]}`
-  routesDefault = routesDefault.concat({ path: routePath, component: files(key).default, exact: true })
-})
-
-export default routesDefault
-
+export default route

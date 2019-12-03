@@ -1,7 +1,7 @@
 import lugiax from "@lugia/lugiax";
-import async from "./async"
-import sync from "./sync"
-const home = lugiax.register({
+import async from "../control/async.js"
+import sync from "../control/sync.js"
+const homeModel = lugiax.register({
   model: 'home',
   state: {
     name: 'userName',
@@ -36,4 +36,4 @@ const home = lugiax.register({
 });
 
 
-export default home
+export default homeModel

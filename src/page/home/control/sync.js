@@ -1,15 +1,21 @@
+// 同步操作方法 
+
 import { fromJS } from "immutable";
 
 export default {
-  deleteRow (state, { list, index }) { // 一个同步操作} // Function
-    let newData = state.get("data").splice(index, 1)
-    return state.set("name", index).set("data", fromJS(newData))
+  deleteRow (state, { list, index }) {
+    let newData = state.get("data").splice(index, 1);
+    return state.merge({
+      "name": index,
+      "data": newData
+    })
   },
   addTableRow (state, ...arg) {
     let params = Object.keys(arg[0]).reduce((pre, cur) => {
       pre[cur] = arg[0][cur]
       return pre
     }, {})
+    console.log(params)
     return state.merge({
       "data": fromJS([...state.get("data"), fromJS(params)])
     })

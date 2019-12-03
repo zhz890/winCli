@@ -1,21 +1,25 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import route from "./route/index";
-import { HashRouter, Link } from "react-router-dom"
-import { createRoute } from "./help/route/withRoute";
+import { createRoute, Link } from "@lugia/lugiax-router"
+import { Button } from "@lugia/lugia-web"
 class App extends Component {
   render () {
     return (
-      <Fragment>
-        <HashRouter>
-          <Link to="/home" >Home</Link>
-          <Link to="/list" >List</Link>
-          <Link to="/detail" >detail</Link>
-          {
-            createRoute(route)
-          }
-        </HashRouter>
+      <>
+        <Link to="/home" >
+          <Button>测试表格页面路由</Button>
+        </Link>
+        <Link to="/list" >
+          <Button>测试一般组件</Button>
+        </Link>
+        <Link to="/detail/1111" >
+          <Button>测试页面权限与页面之间数据的传递</Button>
+        </Link>
+        {
+          createRoute(route)
+        }
 
-      </Fragment>
+      </>
     )
   }
 }

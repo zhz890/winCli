@@ -10,7 +10,7 @@ export const FilexContanier = styled.section`
 export const LeftContanier = styled.div`
   display:flex;
   flex-direction:${props => props.direction || "column"};
-  width:${props => props.width || "800px"};
+  width:${props => props.width || "200px"};
   height:${props => props.height || "400px"}
   background:${props => props.background || "transparent"};
   &.small{

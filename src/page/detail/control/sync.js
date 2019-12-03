@@ -1,3 +1,4 @@
+// 同步操作方法 
 import { fromJS } from "immutable";
 
 export default {
@@ -16,6 +17,8 @@ export default {
       displayValue: [newDisplayValue]
     }))
 
-
+  },
+  deleteAdd (state) {
+    return state.setIn(["roles", "add"], false)
   }
 }
