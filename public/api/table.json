@@ -25,5 +25,10 @@
       "key": "4"
     }
   ],
-  "name": "qqaaaaa"
+  "name": "qqaaaaa",
+  "roles": {
+    "add": false,
+    "delete": false,
+    "see": true
+  }
 }

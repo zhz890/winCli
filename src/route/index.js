@@ -1,17 +1,20 @@
-const route = {
-  '/home': {
-    render: async () => import('../../src/page/home/'),
-    exact: true,
-    key: 1
-  },
-  '/detail/:id': {
-    render: async () => import('../../src/page/detail/'),
-    key: 2
-  },
-  '/list': {
-    render: async () => import('../../src/page/list/'),
-    key: 3
-  },
-};
+import React from 'react';
+import Layout from "../help/layout/index";
+import Detail from "../page/detail/index";
+import Home from "../page/home/index";
 
-export default route
+import { Route } from "react-router-dom";
+export const routes = [
+  {
+    path: "/",
+    component: Layout,
+  }
+]
+
+
+
+export const childrenRouter = [
+  <Route path="/home" component={Home} exact></Route>,
+  <Route path="/detail" component={Detail} exact></Route>
+]
+

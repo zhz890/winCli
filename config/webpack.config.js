@@ -383,11 +383,7 @@ module.exports = function (webpackEnv) {
                 ),
 
                 plugins: [
-                  ["import", {
-                    "libraryName": "@lugia/lugia-web",
-                    "libraryDirectory": "dist",
-                  }
-                  ],
+                  ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }],
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
