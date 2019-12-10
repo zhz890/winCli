@@ -1,17 +1,5 @@
 import styled from "styled-components"
 export const Contanier = styled.ul`
-position:absolute;
-left:0;
-top:0;
-height:100%;
-width:${props => props.width || "70px"}
-background:${props => props.background || props.theme.sideBackground};
-transform: translateX(-100%);
-transition:all ${props => props.time || ".5s"};
-z-index:1;
-&.open{
-  transform: translateX(0);
-}
 `
 
 export const NavItem = styled.li`

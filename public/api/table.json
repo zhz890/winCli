@@ -1,34 +1,38 @@
 {
   "data": [
     {
-      "name": "Jack",
-      "age": 28,
-      "address": "some where",
-      "key": "1"
+      "key": "2",
+      "name": "胡彦祖",
+      "age": 42,
+      "address": "西湖区湖底公园1号"
     },
     {
-      "name": "Rose",
-      "age": 36,
-      "address": "some where",
-      "key": "2"
-    },
-    {
-      "name": "Uzi",
-      "age": 36,
-      "address": "some where",
-      "key": "3"
-    },
-    {
-      "name": "Uzi",
-      "age": 36,
-      "address": "some where",
-      "key": "4"
+      "key": "1",
+      "name": "胡彦祖",
+      "age": 42,
+      "address": "西湖区湖底公园1号"
     }
   ],
   "name": "qqaaaaa",
   "roles": {
-    "add": false,
-    "delete": false,
+    "add": true,
+    "delete": true,
     "see": true
-  }
+  },
+  "theme": {
+    "headerBackground": "#0B1431",
+    "mainBackground": "#0B1431",
+    "sideBackground": "#0A0F0E",
+    "mendBackground": "#1F2640",
+    "footerBackground": "#444e69",
+    "maskBackground": "#444e69",
+    "colorHover": "#F58A0D",
+    "color1": "#8D959A",
+    "color2": "#ADB5BB",
+    "color3": "#1f2640",
+    "color4": "#adb5bb",
+    "colorOrger": "##F58A0D",
+    "colorWrite": "#fff"
+  },
+  "token": "user__Token"
 }

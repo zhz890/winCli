@@ -9,6 +9,7 @@ class App extends Component {
           <Switch>
             {
               routes.map((item) => <Route path={item.path} component={item.component}></Route>)
+
             }
           </Switch>
         </HashRouter>

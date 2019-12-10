@@ -1,20 +1,35 @@
-import React from 'react';
 import Layout from "../help/layout/index";
-import Detail from "../page/detail/index";
-import Home from "../page/home/index";
+import Login from "../help/login/index";
+import NOFont from "../page/404/index"
 
-import { Route } from "react-router-dom";
+const files = require.context('../page', true, /index.js$/);
+export const childrenRouter = files.keys().map(key => {
+  let path = key.split(".")[1];
+  let routePath = `/layout/${path.split("/")[1]}`;
+  return { path: routePath, component: files(key).default, exact: true, auth: true };
+
+})
+
 export const routes = [
+  // {
+  //   path: "/",
+  //   component: Login,
+  //   exact: true
+  // },
+  {
+    path: "/layout",
+    component: Layout,
+  },
   {
     path: "/",
-    component: Layout,
+    component: Login,
+    exact: true
+  },
+  {
+    component: NOFont,
   }
 ]
 
 
 
-export const childrenRouter = [
-  <Route path="/home" component={Home} exact></Route>,
-  <Route path="/detail" component={Detail} exact></Route>
-]
 

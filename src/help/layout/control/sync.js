@@ -7,6 +7,13 @@ export default {
   },
   changeMeun (state, value) {
     return state.set("isMenuOpen", value)
+  },
+
+  changeNavsTransfromEnd (state, sas) {
+    return state.set("isNavsTransfromEnd", sas)
+  },
+  changeToken (state, value) {
+    return state.set("token", value)
   }
 }
 

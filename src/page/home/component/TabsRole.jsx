@@ -1,41 +1,40 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd';
-import withBase from "../../../help/hoc/withBase"
+import withUserConfig from "../../../help/hoc/withUserConfig"
+import { Contanier } from "./style"
 const { TabPane } = Tabs;
 
-class MyTabs extends Component {
+
+class TabsRole extends Component {
   render () {
-    console.log(this.props)
     return (
-      <div>
+      <Contanier>
         <Tabs defaultActiveKey="1" >
           {
             this.getButtonComponent()
           }
         </Tabs>,
-      </div>
+      </Contanier>
     );
   }
 
   getButtonComponent = () => {
+    /*lugix用户在这该菜单下的功能权限**/
     const { roles } = this.props;
     return Object.keys(roles).map((item, index) => {
       if (roles[item]) {
         return (<TabPane tab={index == 1 ? "新增" : index == 2 ? "查看" : "删除"} key={index}>
-          Content of Tab Pane {index}
         </TabPane>)
       }
     })
   }
 
-  componentDidMount () {
-    this.props.asyncHttpRole()
-  }
+
 
 }
 
 
 
 
-export default withBase(MyTabs, "layout")
+export default withUserConfig(TabsRole)
 

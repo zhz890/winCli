@@ -1,17 +1,35 @@
 import styled from "styled-components"
-export const Container = styled.div`
+export const Contanier = styled.div`
    position:absolute;
    left:199px;
    top:0;
    height:100%;
    padding:10px 30px;
    background:${props => props.background || props.theme.mendBackground};
-   transition:all ${props => props.time || ".5s"};
-   transform: translateX(-180%);
-    &.open{
-       transform: translateX(0);
-    }
-    z-index:1;
+   transform: translateX(-200%);
+   z-index:2;
+   &.fade-enter{
+    transform: translateX(-200%);
+  }
+  &.fade-enter-active{
+     transform: translateX(0);
+     transition:all ${props => props.time || ".6s"};
+  }
+  
+  &.fade-enter-done{
+    transform: translateX(0);
+  }
+  &.fade-exit{
+    transform: translateX(0);
+  }
+  &.fade-exit-active{
+     transform: translateX(-200%);
+     transition:all ${props => props.time || ".6s"};
+  }
+  
+  &.fade-exit-done{
+    transform: translateX(-200%);
+  }
 `
 export const InputContanier = styled.div`
   

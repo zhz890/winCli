@@ -1,11 +1,13 @@
 import axios from "axios";
 
 export default {
-  async httpRole (state) {
+  async httpUserConfig (state) {
     const result = await axios.get("/api/table.json");
-    let { roles } = result.data;
+    console.log(result.data)
+    let { roles, token } = result.data;
     return state.merge({
-      "roles": roles
+      "roles": roles,
+      "token": token
     })
   }
 }

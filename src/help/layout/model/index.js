@@ -1,12 +1,13 @@
 import lugiax from "@lugia/lugiax";
 import async from "../control/async";
 import sync from "../control/sync";
-import { theme, roles } from "../constant";
+import { theme } from "../constant";
 const Model = lugiax.register({
   model: 'layout',
   state: {
     theme,
-    roles: roles,
+    roles: {},
+    token: "",
     navMenu: {
       1: {
         id: 1,
@@ -22,8 +23,8 @@ const Model = lugiax.register({
       }
     },
     secondMenu: [
-      {
-        id: 1,
+      [{
+        id: 0,
         title: "测试数据",
         chilren: [
           {
@@ -117,11 +118,63 @@ const Model = lugiax.register({
 
           }
         ]
+      }],
+      [{
+        id: 0,
+        title: "测试数据",
+        chilren: [
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          },
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          },
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          },
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          },
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          },
+          {
+            id: 21,
+            icon: "❀",
+            title: "指令",
+            path: "/"
+
+          }
+        ]
       }
+      ]
+
     ],
     isNavOpen: false,
-    navActive: 1,
-    isMenuOpen: false
+    isMenuOpen: false,
+    isNavsTransfromEnd: true,
+    navActive: 0,
+    MeunIndex: 0
   },
 
 

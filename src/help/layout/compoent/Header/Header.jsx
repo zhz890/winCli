@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Contanier, LogoItem, UserWrapper, UserImg, IconContanier } from "./style";
+import { Contanier, LogoItem, UserWrapper, UserImg, IconContanier, UserInfo, UserInfoItem, UserName } from "./style";
 
 class Header extends Component {
 
@@ -12,18 +12,24 @@ class Header extends Component {
           <IconContanier theme={theme}>☎</IconContanier>
           <UserImg theme={theme}>
           </UserImg>
-          <span>超级管理员 ▼</span>
+          <UserName>超级管理员 <span className="icon">▼</span></UserName>
+          {/* <UserInfo>
+            <UserInfoItem>退出</UserInfoItem>
+          </UserInfo> */}
         </UserWrapper>
       </Contanier>
     );
   }
 
   changeNav = () => {
-    const { isNavOpen, isMenuOpen, changeMeun, changeNav } = this.props
-    changeNav(!isNavOpen)
+    const { isNavOpen, isMenuOpen, changeMeun, changeNav, isNavsTransfromEnd } = this.props;
+    if (isNavsTransfromEnd) {
+      changeNav(!isNavOpen)
+    }
     if (isMenuOpen) {
       changeMeun(false)
     }
+
   }
 }
 

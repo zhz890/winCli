@@ -1,17 +1,5 @@
 import styled from "styled-components"
 export const Contanier = styled.ul`
-position:absolute;
-left:70px;
-top:0;
-height:100%;
-width:${props => props.width || "130px"}
-background:${props => props.background || props.theme.sideBackground};
-transform: translateX(-200%);
-transition:all ${props => props.time || ".5s"};
-z-index:1;
-&.open{
-  transform: translateX(0);
-}
 `
 
 

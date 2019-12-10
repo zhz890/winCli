@@ -4,7 +4,7 @@ import { MainContanier } from "./style";
 class Main extends Component {
   render () {
     const { theme } = this.props
-    console.log(theme)
+    // console.log(theme)
     return (
       <MainContanier theme={theme}>
         {this.props.children}

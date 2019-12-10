@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
-import { Contanier, NavItem } from "./style"
+import classNames from "classnames";
+import { Contanier, NavItem } from "./style";
 
+import BaseSide from "../BaseFade/BaseFade"
 
-class Nav extends Component {
+class Side extends Component {
   render () {
-    const { isNavOpen, navMenu, navActive, theme } = this.props;
+    const { navMenu, navActive, theme } = this.props;
     return (
-      <Contanier className={isNavOpen ? "open" : ""} theme={theme} >
-        {
-          Object.keys(navMenu).map(item => <NavItem theme={theme} onMouseEnter={this.changeNavItem.bind(this, navMenu[item])} key={navMenu[item].id} className={navActive === navMenu[item].id ? "active" : ""}>{navMenu[item].icon}</NavItem>)
-        }
+      <BaseSide {...this.props}>
+        <Contanier theme={theme}>
+          {
+            Object.keys(navMenu).map(item => {
+              let classNameed = classNames({
+                "active": navActive === navMenu[item].id
+              })
+              return (<NavItem theme={theme}
+                onMouseEnter={this.changeNavItem.bind(this, navMenu[item])}
+                key={navMenu[item].id} className={classNameed}>
+                {navMenu[item].icon}</NavItem>)
+            }
 
-      </Contanier>
+            )
+          }
+
+        </Contanier>
+      </BaseSide>
     );
   }
   changeNavItem = (item) => {
-    const { changeNavItem, changeMeun, isMenuOpen } = this.props
+    const { changeNavItem, changeMeun, isMenuOpen, isNavsTransfromEnd } = this.props
     changeNavItem(item.id)
-    if (!isMenuOpen) {
+    if (!isMenuOpen && isNavsTransfromEnd) {
       changeMeun(true)
     }
 
   }
 }
 
-export default Nav
+export default Side

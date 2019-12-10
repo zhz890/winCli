@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "@lugia/lugiax";
-import path from "path"
-const withBase = (Components, file) => {
+const withPageConfig = (Components, file) => {
   class RoleControl extends Component {
     render () {
       return (<Components {...this.props} />)
     }
+
   }
   return connect(
-    require(`../${file}/model/index`).default,
+    require(`../../page/${file}/model/model`).default,
     state => {
       let statejs = state.toJS()
       return Object.keys(statejs).reduce((pre, cur) => {
@@ -24,4 +24,4 @@ const withBase = (Components, file) => {
     }
   )(RoleControl)
 }
-export default withBase
+export default withPageConfig

@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-import { Input } from 'antd';
-// import Securities from "./component/Securities";
-import MyTabs from "./component/Tabs"
-
-
+import MyTabs from "./component/TabsRole";
+import MyTable from "./component/Table";
+import withBase from "../../help/hoc/withPageConfig"
 export const Row = styled.div`
-  margin-bottom:8px
+  margin-bottom:${props => props.mb || "10px"}
 `
 
-export default class Home extends Component {
+class Home extends Component {
   render () {
+    const { data } = this.props
     return (
       <>
         <div style={{ width: "100%" }}>
           <Row>
             <MyTabs></MyTabs>
+            {
+
+              data.length ? <MyTable {...this.props}></MyTable> : ""
+            }
+
           </Row>
         </div>
       </>
     )
   }
+
+  componentDidMount () {
+    const { asyncHttpTable } = this.props
+    asyncHttpTable()
+  }
 }
 
 
+export default withBase(Home, "home")

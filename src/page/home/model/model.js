@@ -4,7 +4,8 @@ import sync from "../control/sync.js";
 const homeModel = lugiax.register({
   model: 'home',
   state: {
-    roles: []
+    test: "homeTest",
+    data: []
   },
   mutations: {
     sync,

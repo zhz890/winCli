@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import user from "../../help/hoc/createUser"
 
 
 export default class Detail extends Component {
-
+  render () {
+    return <div>11111</div>
+  }
 }
 
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "@lugia/lugiax";
 import Header from "./compoent/Header/Header";
-import Nav from "./compoent/Side/Side";
-import NavTitle from "./compoent/Nav/Nav"
+import Side from "./compoent/Side/Side";
+import Nav from "./compoent/Nav/Nav"
 import Menu from "./compoent/Menu/Menu";
 import Main from "./compoent/Main/Main";
 import Mask from "./compoent/Mask/Mask"
@@ -11,30 +11,31 @@ import { HashRouter, Switch } from "react-router-dom";
 import { Contanier, Wrapper } from "./compoent/style";
 import { childrenRouter } from "../../route/index";
 import layoutModel from "./model/index";
+import TargetRoute from "../hoc/FrontendAuth ";
+import user from "../hoc/createUser"
 
 class Layout extends Component {
-
   render () {
-    const { theme, isMenuOpen } = this.props;
+    const { theme, isNavOpen } = this.props;
     return (
       <>
         <Contanier theme={theme}>
           <Header {...this.props}></Header>
           <Wrapper theme={theme}>
             <Menu {...this.props}></Menu>
+            <Side  {...this.props}></Side>
             <Nav {...this.props}></Nav>
-            <NavTitle  {...this.props}></NavTitle>
             <Main {...this.props}>
               <HashRouter>
                 <Switch>
                   {
-                    childrenRouter
+                    <TargetRoute config={childrenRouter} {...this.props}></TargetRoute>
                   }
                 </Switch>
               </HashRouter>
             </Main>
             {
-              isMenuOpen ? <Mask {...this.props} ></Mask> : ""
+              isNavOpen ? <Mask {...this.props} ></Mask> : ""
             }
 
           </Wrapper>
